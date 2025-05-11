@@ -49,7 +49,7 @@ def market_hours(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"market-hours"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def market_open(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -61,7 +61,7 @@ def market_open(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"is-the-market-open-all"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def sectors_performance(
@@ -76,7 +76,7 @@ def sectors_performance(
     """
     path = f"sectors-performance"
     query_vars = {"apikey": apikey, "limit": limit}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def biggest_gainers(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:

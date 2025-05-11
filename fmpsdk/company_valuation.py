@@ -183,7 +183,7 @@ def balance_sheet_statement(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def cash_flow_statement(
@@ -214,7 +214,7 @@ def cash_flow_statement(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def financial_statement_symbol_lists(
@@ -229,7 +229,7 @@ def financial_statement_symbol_lists(
     """
     path = f"financial-statement-symbol-lists"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def income_statement_growth(
@@ -251,7 +251,7 @@ def income_statement_growth(
         "apikey": apikey,
         "limit": limit,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def balance_sheet_statement_growth(
@@ -271,7 +271,7 @@ def balance_sheet_statement_growth(
         "apikey": apikey,
         "limit": limit,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def cash_flow_statement_growth(
@@ -291,7 +291,7 @@ def cash_flow_statement_growth(
         "apikey": apikey,
         "limit": limit,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def income_statement_as_reported(
@@ -1036,7 +1036,7 @@ def price_target(
         "apikey": apikey,
         "symbol": symbol
     }
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 def price_target_consensus(
     apikey: str, symbol: str
@@ -1053,7 +1053,7 @@ def price_target_consensus(
         "apikey": apikey,
         "symbol": symbol
     }
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 
@@ -1065,7 +1065,7 @@ def historical_employee_count(
     """
     path = f"historical/employee_count"
     query_vars = {"apikey": apikey, "symbol": symbol}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def available_industries(apikey: str) -> typing.Optional[typing.List[str]]:
@@ -1112,4 +1112,4 @@ def upgrades_downgrades_consensus(
     
     path = "upgrades-downgrades-consensus"
     query_vars = {"apikey": apikey, "symbol": symbol}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)

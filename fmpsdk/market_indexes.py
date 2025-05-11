@@ -137,7 +137,7 @@ def historical_dowjones_constituent(
     """
     path = f"historical/dowjones_constituent"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def available_indexes(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -149,7 +149,7 @@ def available_indexes(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"symbol/available-indexes"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def available_sectors(apikey: str) -> typing.Optional[typing.List[str]]:
@@ -161,7 +161,7 @@ def available_sectors(apikey: str) -> typing.Optional[typing.List[str]]:
     """
     path = f"sectors-list"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_sectors_performance(
@@ -213,7 +213,7 @@ def historical_sectors_performance(
         "to": to_date,
         "limit": limit
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def all_exchange_market_hours(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -225,4 +225,4 @@ def all_exchange_market_hours(apikey: str) -> typing.Optional[typing.List[typing
     """
     path = "all-exchange-market-hours"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)

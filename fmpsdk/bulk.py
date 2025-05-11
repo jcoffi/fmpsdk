@@ -63,7 +63,7 @@ def batch_quote(
     
     path = f"batch-pre-post-market/{','.join(symbols)}"
     query_vars = {"apikey": apikey}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def batch_pre_post_market_trade(
@@ -91,7 +91,7 @@ def batch_pre_post_market_trade(
     
     path = f"batch-pre-post-market-trade/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def scores_bulk(

@@ -34,7 +34,7 @@ def mutual_fund_holders(
     """
     path = f"mutual-fund-holder/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def etf_holders(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]]:
