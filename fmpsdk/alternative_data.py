@@ -1,6 +1,6 @@
 import typing
 
-from .url_methods import __return_json_v4
+from .url_methods import __return_json_v4, __return_json_stable
 
 
 def commitment_of_traders_report_list(
@@ -14,9 +14,9 @@ def commitment_of_traders_report_list(
     :param apikey: Your API key.
     :return: A list of dictionaries.
     """
-    path = f"commitment_of_traders_report/list"
+    path = f"commitment-of-traders-report/list"
     query_vars = {"apikey": apikey}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def commitment_of_traders_report(
@@ -42,7 +42,7 @@ def commitment_of_traders_report(
     :param to_date: YYYY-MM-DD string.
     :return: A list of dictionaries.
     """
-    path = f"commitment_of_traders_report"
+    path = f"commitment-of-traders-report"
     query_vars = {"apikey": apikey}
     if symbol:
         path = f"{path}/{symbol}"
@@ -50,7 +50,7 @@ def commitment_of_traders_report(
         query_vars["from"] = from_date
     if to_date:
         query_vars["to"] = to_date
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def commitment_of_traders_report_analysis(
@@ -78,4 +78,4 @@ def commitment_of_traders_report_analysis(
         query_vars["from"] = from_date
     if to_date:
         query_vars["to"] = to_date
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)

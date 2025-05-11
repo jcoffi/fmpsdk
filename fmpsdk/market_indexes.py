@@ -11,7 +11,7 @@ from .settings import (
     BASE_URL_v3,
     DEFAULT_LIMIT,
 )
-from .url_methods import __return_json_v3, __return_json_v4
+from .url_methods import __return_json_v3, __return_json_stable, __return_json_v4
 
 
 def indexes(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -23,7 +23,7 @@ def indexes(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"quotes/index"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def sp500_constituent(
@@ -39,7 +39,7 @@ def sp500_constituent(
     :param filename: Name of saved file.
     :return: A list of dictionaries.
     """
-    path = f"sp500_constituent"
+    path = f"sp500-constituent"
     query_vars = {"apikey": apikey}
     if download:
         query_vars["datatype"] = "csv"  # Only CSV is supported.
@@ -47,7 +47,7 @@ def sp500_constituent(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving SP500 Constituents as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_sp500_constituent(
@@ -61,7 +61,7 @@ def historical_sp500_constituent(
     """
     path = f"historical/sp500_constituent"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def nasdaq_constituent(
@@ -77,7 +77,7 @@ def nasdaq_constituent(
     :param filename: Name of saved file.
     :return: A list of dictionaries.
     """
-    path = f"nasdaq_constituent"
+    path = f"nasdaq-constituent"
     query_vars = {"apikey": apikey}
     if download:
         query_vars["datatype"] = "csv"  # Only CSV is supported.
@@ -85,7 +85,7 @@ def nasdaq_constituent(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving NASDAQ Constituents as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_nasdaq_constituent(
@@ -99,7 +99,7 @@ def historical_nasdaq_constituent(
     """
     path = f"historical/nasdaq_constituent"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def dowjones_constituent(
@@ -115,7 +115,7 @@ def dowjones_constituent(
     :param filename: Name of saved file.
     :return: A list of dictionaries.
     """
-    path = f"dowjones_constituent"
+    path = f"dowjones-constituent"
     query_vars = {"apikey": apikey}
     if download:
         query_vars["datatype"] = "csv"  # Only CSV is supported.
@@ -123,7 +123,7 @@ def dowjones_constituent(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving DOWJONES Constituents as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def historical_dowjones_constituent(

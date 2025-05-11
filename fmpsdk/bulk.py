@@ -24,7 +24,7 @@ def bulk_historical_eod(
     """
     path = f"batch-historical-eod"
     query_vars = {"apikey": apikey, "date": date}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def bulk_profiles(apikey: str, part: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -112,7 +112,7 @@ def scores_bulk(
         logging.warning("No symbols provided for scores bulk request.")
         return []
     
-    path = "scores-bulk"
+    path = f"scores-bulk"
     query_vars = {"apikey": apikey, "symbol": ','.join(symbols)}
     return __return_json_stable(path=path, query_vars=query_vars)
 
@@ -142,7 +142,7 @@ def upgrades_downgrades_consensus_bulk(
              - analystsCount
              And more...
     """
-    path = "upgrades-downgrades-consensus-bulk"
+    path = f"upgrades-downgrades-consensus-bulk"
     query_vars = {"apikey": apikey}
     
     if limit is not None:

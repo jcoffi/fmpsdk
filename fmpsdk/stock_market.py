@@ -1,7 +1,7 @@
 import typing
 
 from .settings import DEFAULT_LIMIT
-from .url_methods import __return_json_v3
+from .url_methods import __return_json_v3, __return_json_stable
 
 
 def actives(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -13,7 +13,7 @@ def actives(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"actives"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def gainers(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -25,7 +25,7 @@ def gainers(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"gainers"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def losers(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -37,7 +37,7 @@ def losers(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"losers"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def market_hours(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:

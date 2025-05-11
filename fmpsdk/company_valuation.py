@@ -37,7 +37,7 @@ def company_profile(
     """
     path = f"profile/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def key_executives(
@@ -53,7 +53,7 @@ def key_executives(
     """
     path = f"key-executives/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def search(
@@ -76,7 +76,7 @@ def search(
         "query": query,
         "exchange": exchange,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def search_ticker(
@@ -99,7 +99,7 @@ def search_ticker(
         "query": query,
         "exchange": exchange,
     }
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def financial_statement(
@@ -152,7 +152,7 @@ def income_statement(
         open(filename, "wb").write(response.content)
         logging.info(f"Saving {symbol} financial statement as {filename}.")
     else:
-        return __return_json_v3(path=path, query_vars=query_vars)
+        return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def balance_sheet_statement(
@@ -868,7 +868,7 @@ def earning_call_transcript(
     :param quarter: Quarter of the transcripts
     :return: A list of dictionaries.
     """
-    path = f"earning_call_transcript/{symbol}"
+    path = f"earning-call-transcript/{symbol}"
     query_vars = {"apikey": apikey, "year": year, "quarter": quarter}
     return __return_json_v3(path=path, query_vars=query_vars)
 
@@ -886,7 +886,7 @@ def batch_earning_call_transcript(
     """
     path = f"batch_earning_call_transcript/{symbol}"
     query_vars = {"apikey": apikey, "year": year}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def earning_call_transcripts_available_dates(
@@ -899,9 +899,9 @@ def earning_call_transcripts_available_dates(
     :param symbol: Company ticker.
     :return: A list of lists.
     """
-    path = f"earning_call_transcript"
+    path = f"earning-call-transcript"
     query_vars = {"apikey": apikey, "symbol": symbol}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def sec_filings(
@@ -950,7 +950,7 @@ def social_sentiments(
     """
     path = f"historical/social-sentiment"
     query_vars = {"apikey": apikey, "symbol": symbol, "page": page}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def stock_peers(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -960,9 +960,9 @@ def stock_peers(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.
     :param symbol: Company ticker
     :return: A list of dictionaries
     """
-    path = f"stock_peers"
+    path = f"stock-peers"
     query_vars = {"apikey": apikey, "symbol": symbol}
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def analyst_estimates(
@@ -1019,7 +1019,7 @@ def upgrades_downgrades(
         "apikey": apikey,
         "symbol": symbol
     }
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 def price_target(
     apikey: str, symbol: str
