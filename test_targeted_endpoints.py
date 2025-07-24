@@ -51,7 +51,11 @@ def test_endpoint(name, func, api_key, *args, **kwargs):
 def main():
     """Main function to test the updated endpoints."""
     # Use the API key from the .env file
-    api_key = "5b9HBC68NX5mg3KWIRDnriOeu5jZQ2Jv"
+    import os
+    api_key = os.getenv("FMP_API_KEY")
+    if not api_key:
+        logging.error("API key not found in environment variables. Please set FMP_API_KEY.")
+        return
     
     logging.info("Starting endpoint tests with FMP API key")
     
