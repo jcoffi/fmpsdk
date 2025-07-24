@@ -117,7 +117,7 @@ def cik_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     """
     path = f"cik-list"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def cik_search(apikey: str, name: str) -> typing.Optional[typing.List[typing.Dict]]:
