@@ -4,7 +4,7 @@ import typing
 import requests
 
 from .settings import DEFAULT_LIMIT, SEC_RSS_FEEDS_FILENAME, BASE_URL_v3
-from .url_methods import __return_json_v3, __return_json_v4
+from .url_methods import __return_json_v3, __return_json_stable, __return_json_v4
 
 
 def institutional_holders(
@@ -19,7 +19,7 @@ def institutional_holders(
     """
     path = f"institutional-holder/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def mutual_fund_holders(
@@ -34,7 +34,7 @@ def mutual_fund_holders(
     """
     path = f"mutual-fund-holder/{symbol}"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def etf_holders(apikey: str, symbol: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -115,9 +115,9 @@ def cik_list(apikey: str) -> typing.Optional[typing.List[typing.Dict]]:
     :param apikey: Your API key.
     :return: A list of dictionaries.
     """
-    path = f"cik_list"
+    path = f"cik-list"
     query_vars = {"apikey": apikey}
-    return __return_json_v3(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
 
 
 def cik_search(apikey: str, name: str) -> typing.Optional[typing.List[typing.Dict]]:
@@ -204,4 +204,4 @@ def institutional_symbol_ownership(
         "includeCurrentQuarter": includeCurrentQuarter,
         "limit": limit,
     }
-    return __return_json_v4(path=path, query_vars=query_vars)
+    return __return_json_stable(path=path, query_vars=query_vars)
